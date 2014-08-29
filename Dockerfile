@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM node 
 
 MAINTAINER Ali Nabavi <docker@alijnabavi.info>
 
