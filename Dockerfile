@@ -18,14 +18,14 @@ RUN npm install --global phantomjs
 RUN npm install --global generator-ember
 RUN npm install --global grunt-mocha
 
-RUN useradd guest
+RUN useradd -m guest
 RUN echo "guest:guest" | chpasswd
 
 RUN echo "guest ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 VOLUME ["/data"]
 
-RUN echo "chown -R guest /data; sudo -u guest /bin/bash" >> /root/boot.sh
+RUN echo "chown -R guest /data; su - guest; /bin/bash" >> /root/boot.sh
 
 CMD ["bash", "/root/boot.sh"]
 
