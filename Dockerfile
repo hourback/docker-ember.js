@@ -2,7 +2,7 @@ FROM ubuntu:14.04
  
 MAINTAINER Ali Nabavi <docker@alijnabavi.info>
 
-EXPOSE 4200
+EXPOSE 4200 9000
 
 RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup | bash -
