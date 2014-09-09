@@ -7,7 +7,7 @@ EXPOSE 4200 9000
 RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 
-RUN apt-get install -y make nodejs ruby ruby-dev git vim libfreetype libfontconfig1
+RUN apt-get install -y make nodejs ruby ruby-dev git vim libfreetype6 libfontconfig1
 
 RUN gem install compass
 
