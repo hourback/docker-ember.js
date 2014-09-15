@@ -23,6 +23,12 @@ RUN echo "guest:guest" | chpasswd
 
 RUN echo "guest ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN sudo -i -u guest \curl -sSL https://get.rvm.io | sudo -i -u guest bash
+#RUN sudo -i -u guest rvm install 2.0.0-p353
+#RUN sudo -i -u guest rvm use 2.0.0-p353
+#RUN sudo -i -u guest gem install bundler
+#RUN sudo -i -u guest gem install rails && rails -v
+
 VOLUME ["/data"]
 
 RUN echo "chown -R guest /data; su - guest; /bin/bash" >> /root/boot.sh
