@@ -23,11 +23,11 @@ RUN echo "guest:guest" | chpasswd
 
 RUN echo "guest ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN sudo -i -u guest \curl -sSL https://get.rvm.io | sudo -i -u guest bash
-#RUN sudo -i -u guest rvm install 2.0.0-p353
-#RUN sudo -i -u guest rvm use 2.0.0-p353
-#RUN sudo -i -u guest gem install bundler
-#RUN sudo -i -u guest gem install rails && rails -v
+COPY create_env.sh /home/guest/create_env.sh
+RUN chown guest:guest /home/guest/create_env.sh
+RUN sudo -i -u guest bash /home/guest/create_env.sh
+
+USER root
 
 VOLUME ["/data"]
 
