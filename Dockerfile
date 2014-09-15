@@ -23,6 +23,8 @@ RUN echo "guest:guest" | chpasswd
 
 RUN echo "guest ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+# TODO: Run this as guest: "\curl -sSL https://get.rvm.io | bash"
+
 VOLUME ["/data"]
 
 RUN echo "chown -R guest /data; su - guest; /bin/bash" >> /root/boot.sh
