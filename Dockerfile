@@ -7,21 +7,15 @@ EXPOSE 4200 9000
 RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 
-RUN apt-get install -y make nodejs ruby ruby-dev git vim libfreetype6 libfontconfig1
-
-RUN gem install compass
-
-RUN npm install --global yo
-RUN npm install --global ember-cli
-RUN npm install --global bower
-RUN npm install --global phantomjs
-RUN npm install --global generator-ember
-RUN npm install --global grunt-mocha
+RUN apt-get install -y make ruby ruby-dev git vim libfreetype6 libfontconfig1
 
 RUN useradd -m guest
 RUN echo "guest:guest" | chpasswd
-
 RUN echo "guest ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+COPY create_env_node.sh /home/guest/create_env_node.sh
+RUN chown guest:guest /home/guest/create_env_node.sh
+RUN sudo -i -u guest bash /home/guest/create_env_node.sh 
 
 COPY create_env.sh /home/guest/create_env.sh
 RUN chown guest:guest /home/guest/create_env.sh
