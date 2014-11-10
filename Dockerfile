@@ -21,6 +21,9 @@ COPY create_env.sh /home/guest/create_env.sh
 RUN chown guest:guest /home/guest/create_env.sh
 RUN sudo -i -u guest bash /home/guest/create_env.sh
 
+# Set Node.js version to use.
+RUN echo "nvm use 0.10" >> /home/guest/.bashrc
+
 USER root
 
 VOLUME ["/data"]
