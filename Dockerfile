@@ -21,8 +21,10 @@ COPY create_env.sh /home/guest/create_env.sh
 RUN chown guest:guest /home/guest/create_env.sh
 RUN sudo -i -u guest bash /home/guest/create_env.sh
 
-# Set Node.js version to use.
-RUN echo "nvm use 0.10" >> /home/guest/.bashrc
+# Put nvm and rvm stuff in /home/guest/.profile
+# REMEMBER: Ubuntu uses Dash as the default shell, not Bash
+COPY profile /home/guest/profile
+RUN cat /home/guest/profile >> /home/guest/.profile
 
 USER root
 

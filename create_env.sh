@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 \curl -sSL https://get.rvm.io | bash
 source /home/guest/.rvm/scripts/rvm
