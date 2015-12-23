@@ -17,9 +17,9 @@ COPY create_env_node.sh /home/guest/create_env_node.sh
 RUN chown guest:guest /home/guest/create_env_node.sh
 RUN sudo -i -u guest bash /home/guest/create_env_node.sh 
 
-COPY create_env.sh /home/guest/create_env.sh
-RUN chown guest:guest /home/guest/create_env.sh
-RUN sudo -i -u guest bash /home/guest/create_env.sh
+#COPY create_env.sh /home/guest/create_env.sh
+#RUN chown guest:guest /home/guest/create_env.sh
+#RUN sudo -i -u guest bash /home/guest/create_env.sh
 
 # Put nvm and rvm stuff in /home/guest/.profile
 # REMEMBER: Ubuntu uses Dash as the default shell, not Bash
